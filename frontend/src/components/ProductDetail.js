@@ -19,15 +19,17 @@ const ProductDetail = () => {
   }, [id]);
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <div className="container mt-4">Loading...</div>;
   }
 
   return (
-    <div>
-      <h1>{product.name}</h1>
+    <div className="container mt-4">
+      <h1 className="mb-3">{product.name}</h1>
       {product.description && <p>{product.description}</p>}
       {product.price && <p>Price: ${product.price}</p>}
-      <Link to="/">Back to products</Link>
+      <Link to="/" className="btn btn-primary mt-3">
+        Back to products
+      </Link>
     </div>
   );
 };

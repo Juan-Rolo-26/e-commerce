@@ -18,12 +18,14 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Products</h1>
-      <ul>
+    <div className="container mt-4">
+      <h1 className="mb-3">Products</h1>
+      <ul className="list-group">
         {products.map(product => (
-          <li key={product.id}>
-            <Link to={`/product/${product.id}`}>{product.name}</Link>
+          <li className="list-group-item" key={product.id}>
+            <Link to={`/product/${product.id}`} className="text-decoration-none">
+              {product.name}
+            </Link>
           </li>
         ))}
       </ul>
