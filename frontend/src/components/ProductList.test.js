@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('ProductList', () => {
   beforeEach(() => {
@@ -15,7 +16,11 @@ describe('ProductList', () => {
 
   it('renders products fetched from API', async () => {
     const ProductList = require('./ProductList').default;
-    render(<ProductList />);
+    render(
+      <MemoryRouter>
+        <ProductList />
+      </MemoryRouter>
+    );
     expect(await screen.findByText('Test Product')).toBeInTheDocument();
     expect(global.fetch).toHaveBeenCalledTimes(1);
   });
