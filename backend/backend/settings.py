@@ -9,6 +9,8 @@ DEBUG = os.getenv('DEBUG', '1') == '1'
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOWED_ORIGINS = [os.getenv('REACT_APP_API_URL')] if os.getenv('REACT_APP_API_URL') else []
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -16,11 +18,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'products',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
