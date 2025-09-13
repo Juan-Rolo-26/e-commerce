@@ -33,8 +33,8 @@ class ProductAPITest(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         data = response.json()
-        self.assertEqual(len(data), 1)
-        self.assertEqual(data[0]['name'], self.product.name)
+        self.assertEqual(data['count'], 1)
+        self.assertEqual(data['results'][0]['name'], self.product.name)
 
     def test_retrieve_product(self):
         url = reverse('product-detail', args=[self.product.id])
