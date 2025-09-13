@@ -39,3 +39,13 @@ Aplicación de ejemplo para comercio electrónico con backend en Django y fronte
 ### Comandos útiles
 - `npm test`
 
+## Pruebas
+
+### Backend
+1. `cd backend`
+2. `python manage.py test`
+
+### Frontend
+1. `cd frontend`
+2. `npm test`
+
